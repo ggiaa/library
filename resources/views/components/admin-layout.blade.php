@@ -18,10 +18,10 @@
                     <span class="text-2xl">ADMIN</span>
                 </div>
                 <div class="flex-1 overflow-auto">
-                    <a href="">
+                    <a href="dashboard">
                         <div class="py-3 px-6 border-y">Dasboard</div>
                     </a>
-                    <a href="">
+                    <a href="/dashboard/books">
                         <div class="py-3 px-6 border-b">Books</div>
                     </a>
                     <a href="">
