@@ -25,8 +25,8 @@
                     <a href="/dashboard/books">
                         <div class="py-3 px-6 border-b {{ Request::is('dashboard/books*') ? 'bg-slate-300 bg-opacity-40 text-sky-500 font-semibold' : '' }}">Books</div>
                     </a>
-                    <a href="">
-                        <div class="py-3 px-6 border-b">Users</div>
+                    <a href="/dashboard/users">
+                        <div class="py-3 px-6 border-b {{ Request::is('dashboard/users*') ? 'bg-slate-300 bg-opacity-40 text-sky-500 font-semibold' : '' }}">Users</div>
                     </a>
                 </div>
             </div>

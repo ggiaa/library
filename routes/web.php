@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,4 @@ Route::get('dashboard', function () {
 });
 
 route::resource('dashboard/books', BookController::class);
+route::resource('dashboard/users', UserController::class);
