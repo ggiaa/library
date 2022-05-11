@@ -1,7 +1,7 @@
 <x-admin-layout title="BOOKS">
 
     @if (session('success'))
-    <div class="alert bg-cyan-600 text-white w-1/2 mx-auto text-center flex items-center py-1 rounded">
+    <div class="alert bg-cyan-600 text-white w-1/2 mx-auto text-center flex items-center py-1 rounded mb-2">
         <div class="flex-1">
             {{ session('success') }}
         </div>

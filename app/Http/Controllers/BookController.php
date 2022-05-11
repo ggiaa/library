@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -37,7 +38,22 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            "judul_buku" => "required|unique:books",
+            "slug" => "unique:books",
+            "penulis" => "required",
+            "penerbit" => "required",
+            "jumlah_halaman" => "required|numeric|min:1",
+            "tahun_terbit" => "required|numeric|min:1",
+            "genre" => "required",
+            "sinopsis" => "required",
+        ]);
+
+        $validate['slug'] = Str::slug($request->judul_buku);
+
+        Book::create($validate);
+
+        return redirect('/dashboard/books')->with('success', 'Berhasil menambahkan data buku baru!');
     }
 
     /**
