@@ -6,6 +6,8 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use function Symfony\Component\String\b;
+
 class BookController extends Controller
 {
     /**
@@ -77,7 +79,9 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return view('admin.books.edit', [
+            'book' => $book
+        ]);
     }
 
     /**
@@ -89,7 +93,26 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $rules = [
+            "judul_buku" => "required",
+            "penulis" => "required",
+            "penerbit" => "required",
+            "jumlah_halaman" => "required|numeric|min:1",
+            "tahun_terbit" => "required|numeric|min:1",
+            "genre" => "required",
+            "sinopsis" => "required",
+        ];
+
+        if ($request->judul_buku != $book->judul_buku) {
+            $rules['judul_buku'] = 'required|unique:books';
+        }
+
+        $validate = $request->validate($rules);
+        $validate['slug'] = Str::slug($request->judul_buku);
+
+        Book::where('id', $book->id)->update($validate);
+
+        return redirect('/dashboard/books')->with('success', 'Perubahan berhasil disimpan!');
     }
 
     /**
@@ -100,6 +123,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        Book::destroy($book->id);
+        return redirect('dashboard/books')->with('success', 'Data berhasil dihapus!');
     }
 }
