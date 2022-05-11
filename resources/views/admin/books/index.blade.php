@@ -33,7 +33,7 @@
                     <td>{{ $book->penulis }}</td>
                     <td class="py-1 flex gap-x-2 justify-center">
                         <a href="/dashboard/books/{{ $book->slug }}" class="bg-sky-500 text-white px-2 rounded text-sm py-1">Detail</a>
-                        <a href="/dashboard/books/{{ $book->slug }}" class="bg-orange-500 text-white px-2 rounded text-sm py-1">Edit</span></a>
+                        <a href="/dashboard/books/{{ $book->slug }}/edit" class="bg-orange-500 text-white px-2 rounded text-sm py-1">Edit</span></a>
                         <form action="/dashboard/books/{{ $book->slug }}" style="display: inline" method="post">
                             @method('DELETE')
                             @csrf

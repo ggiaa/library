@@ -19,4 +19,9 @@ class Book extends Model
         'genre',
         'sinopsis',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
