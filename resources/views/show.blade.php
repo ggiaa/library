@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <img src="/image/1.jpg">
+                    <img src="{{ $book->gambar_sampul }}">
                 </div>
             </div>
 

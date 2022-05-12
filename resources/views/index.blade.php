@@ -32,7 +32,7 @@
                 @foreach ($books as $book)
                 <div class="card w-full rounded shadow-lg border border-slate-300">
                     <div class="p-4">
-                        <img src="/image/1.jpg">
+                        <img src="{{ $book->gambar_sampul }}">
                     </div>
                     <div class=" border-t-2 px-4 py-2">
                         <div class="text-center">
