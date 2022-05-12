@@ -13,4 +13,11 @@ class HomeController extends Controller
             "books" => Book::latest()->paginate(8),
         ]);
     }
+
+    public function show(Book $book)
+    {
+        return view('show', [
+            'book' => $book,
+        ]);
+    }
 }
