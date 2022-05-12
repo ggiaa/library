@@ -32,8 +32,10 @@
                 </tr>
             </table>
         </div>
-        <div class="bg-red-500">
-            iimage
+        <div class="border shadow-lg">
+            @if ($book->gambar_sampul)
+            <img src="/{{ $book->gambar_sampul }}" alt="">
+            @endif
         </div>
     </div>
 </x-admin-layout>

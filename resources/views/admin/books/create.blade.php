@@ -1,5 +1,5 @@
 <x-admin-layout title="CREATE">
-    <form action="/dashboard/books" method="POST">
+    <form action="/dashboard/books" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="w-1/2 mb-10">
             <div class="form-group pb-4">
@@ -63,6 +63,15 @@
                 <label for="sinopsis" class="block mb-1">Sinopsis</label>
                 <textarea name="sinopsis" id="sinopsis" rows="6" class="@error('sinopsis') is-invalid @enderror border-2 resize-none border-slate-700 focus:border-none w-full rounded-lg py-1 px-1 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:outline-1 focus:outline-sky-500">{{ old('sinopsis') }}</textarea>
                 @error('sinopsis')
+                <div class="text-red-500 text-sm">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group pb-4">
+                <label for="gambar_sampul" class="block mb-1">Gambar Sampul</label>
+                <input type="file" name="gambar_sampul" id="gambar_sampul" class="@error('gambar_sampul') is-invalid @enderror form-control file:outline-none file:border-2 file:rounded-full file:cursor-pointer">
+                @error('gambar_sampul')
                 <div class="text-red-500 text-sm">
                     {{ $message }}
                 </div>

@@ -1,6 +1,6 @@
 <x-admin-layout title="EDIT">
     <div class="w-2/3">
-        <form action="/dashboard/books/{{ $book->slug }}" method="POST">
+        <form action="/dashboard/books/{{ $book->slug }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group pb-4">
@@ -61,6 +61,25 @@
                 <label for="sinopsis" class="block mb-1">sinopsis</label>
                 <textarea name="sinopsis" id="sinopsis" rows="7" class="@error('genre') is-invalid @enderror form-control border-2 border-slate-700 focus:border-none w-full rounded-lg py-1 px-1 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:outline-1 focus:outline-sky-500 resize-none">{{ old('sinopsis',$book->sinopsis) }}</textarea>
                 @error('sinopsis')
+                <div class="text-red-500 text-sm">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group pb-4">
+                <label for="gambar_sampul" class="block mb-1">Gambar Sampul</label>
+                @if ($book->gambar_sampul)
+                <div class="py-2">
+                    <img src="/{{ $book->gambar_sampul }}" alt="" width="100px" class="shadow-lg border">
+                </div>
+                @else
+                <div class="py-2">
+                    <p class="text-red-500">Tidak ada gambar sampul!</p>
+                </div>
+                @endif
+                <input type="hidden" name="oldImage" value="{{ $book->gambar_sampul }}">
+                <input type="file" name="gambar_sampul" id="gambar_sampul" class="@error('gambar_sampul') is-invalid @enderror form-control file:outline-none file:border-2 file:rounded-full file:cursor-pointer">
+                @error('gambar_sampul')
                 <div class="text-red-500 text-sm">
                     {{ $message }}
                 </div>

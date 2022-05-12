@@ -18,6 +18,7 @@ class Book extends Model
         'tahun_terbit',
         'genre',
         'sinopsis',
+        'gambar_sampul',
     ];
 
     public function getRouteKeyName()

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
 use function Symfony\Component\String\b;
 
 class BookController extends Controller
@@ -40,6 +41,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->file('gambar_sampul'));
         $validate = $request->validate([
             "judul_buku" => "required|unique:books",
             "slug" => "unique:books",
@@ -49,9 +51,14 @@ class BookController extends Controller
             "tahun_terbit" => "required|numeric|min:1",
             "genre" => "required",
             "sinopsis" => "required",
+            'gambar_sampul' => 'image|file',
         ]);
 
         $validate['slug'] = Str::slug($request->judul_buku);
+
+        if ($request->file('gambar_sampul')) {
+            $validate['gambar_sampul'] = $request->file('gambar_sampul')->store('image');
+        }
 
         Book::create($validate);
 
@@ -101,6 +108,7 @@ class BookController extends Controller
             "tahun_terbit" => "required|numeric|min:1",
             "genre" => "required",
             "sinopsis" => "required",
+            'gambar_sampul' => 'file|image'
         ];
 
         if ($request->judul_buku != $book->judul_buku) {
@@ -108,6 +116,14 @@ class BookController extends Controller
         }
 
         $validate = $request->validate($rules);
+
+        if ($request->file('gambar_sampul')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validate['gambar_sampul'] = $request->file('gambar_sampul')->store('image');
+        }
+
         $validate['slug'] = Str::slug($request->judul_buku);
 
         Book::where('id', $book->id)->update($validate);
@@ -123,6 +139,9 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        if ($book->gambar_sampul) {
+            Storage::delete($book->gambar_sampul);
+        }
         Book::destroy($book->id);
         return redirect('dashboard/books')->with('success', 'Data berhasil dihapus!');
     }

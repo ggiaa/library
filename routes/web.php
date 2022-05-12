@@ -20,7 +20,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/{book:slug}', [HomeController::class, 'show']);
 
 Route::get('dashboard', function () {
-    return view('admin.dashboard');
+    return view('index');
 });
 
 route::resource('dashboard/books', BookController::class);

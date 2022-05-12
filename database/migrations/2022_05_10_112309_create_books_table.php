@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('tahun_terbit');
             $table->string('genre');
             $table->text('sinopsis');
+            $table->string('gambar_sampul')->nullable(true);
             $table->timestamps();
         });
     }
