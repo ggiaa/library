@@ -16,11 +16,23 @@
                 <p class="font-medium text-2xl py-2">Library</p>
                 <ul class="flex gap-x-4 font-medium">
                     <li>
-                        <a href="">Home</a>
+                        <a href="" class="{{ Request::is('/') ? 'font-bold border-b-[3px] border-slate-600 py-3' : '' }}">Home</a>
+                    </li>
+                    @auth
+                    <li>
+                        <a href="/">Dashboard</a>
                     </li>
                     <li>
-                        <a href="">Login</a>
+                        <a href="/">Data</a>
                     </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                    @else
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                    @endauth
                 </ul>
             </div>
         </section>

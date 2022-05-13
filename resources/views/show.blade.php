@@ -63,7 +63,7 @@
                         <a href="/" class="bg-accent py-1 px-4 flex-1 text-center rounded-xl text-white">Kembali</a>
                     </div>
                 </div>
-                <div class="">
+                <div class="border shadow-lg">
                     <img src="{{ $book->gambar_sampul }}">
                 </div>
             </div>
