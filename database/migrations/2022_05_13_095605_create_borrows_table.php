@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('borrows', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('role')->default('user');
-            $table->string('status')->default('free');
-            $table->rememberToken();
+            $table->foreignId('user_id');
+            $table->foreignId('book_id');
+            $table->integer('lama_peminjaman');
+            $table->date('tanggal_pinjam');
+            $table->date('tanggal_kembali')->nullable(true);
+            $table->bigInteger('denda')->nullable(true);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('borrows');
     }
 };

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('genre');
             $table->text('sinopsis');
             $table->string('gambar_sampul')->nullable(true);
+            $table->integer('stok')->default(0);
             $table->timestamps();
         });
     }
