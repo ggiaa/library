@@ -1,7 +1,7 @@
 <x-home-layout>
     @if (session('success'))
     <div class="alert border shadow max-w-3xl mx-auto p-3 text-center rounded-xl mb-10 bg-primary1 text-white font-medium">
-        {{ session('success') }}Peminjaman Berhasil, Silahkan mengambil buku ke perpustakaan!
+        {{ session('success') }}
     </div>
     @endif
 
@@ -28,11 +28,6 @@
                 </tr>
             </table>
             <p class="mt-10">Harap kembalikan buku pada : <span class="font-medium text-primary1">{{ date('l, d F o', strtotime('+'.$kembali.' days', strtotime($dataPeminjaman->tanggal_pinjam))) }}</span></p>
-            @else
-            <div class="pt-10 pb-5 text-center">
-                <p class="font-medium pb-3">Pengembalian Berhasil!</p>
-                <p>Harap tunggu konfirmasi dari petugas sebelum meminjam buku lagi</p>
-            </div>
             @endif
         </div>
     </div>
