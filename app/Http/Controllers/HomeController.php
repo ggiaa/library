@@ -9,8 +9,14 @@ class HomeController extends Controller
 {
     public function index()
     {
+        if (request('search')) {
+            $book = Book::where('judul_buku', 'like', '%' . request('search') . '%');
+        } else {
+            $book = Book::latest();
+        }
+
         return view('index', [
-            "books" => Book::latest()->paginate(8),
+            "books" => $book->paginate(8),
         ]);
     }
 

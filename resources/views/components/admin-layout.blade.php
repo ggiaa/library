@@ -28,6 +28,9 @@
                     <a href="/dashboard/users">
                         <div class="py-3 px-6 border-b {{ Request::is('dashboard/users*') ? 'bg-slate-300 bg-opacity-40 text-sky-500 font-semibold' : '' }}">Users</div>
                     </a>
+                    <a href="/logout">
+                        <div class="py-3 px-6 border-b">Logout</div>
+                    </a>
                 </div>
             </div>
             <div class="flex flex-col flex-1">

@@ -560,6 +560,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-8 {
   margin-top: 2rem;
 }
+.ml-auto {
+  margin-left: auto;
+}
 .box-border {
   box-sizing: border-box;
 }
@@ -665,8 +668,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex-wrap {
   flex-wrap: wrap;
 }
+.items-end {
+  align-items: flex-end;
+}
 .items-center {
   align-items: center;
+}
+.justify-end {
+  justify-content: flex-end;
 }
 .justify-center {
   justify-content: center;
@@ -702,6 +711,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-divide-opacity: 1;
   border-color: rgb(51 65 85 / var(--tw-divide-opacity));
 }
+.self-end {
+  align-self: flex-end;
+}
 .overflow-auto {
   overflow: auto;
 }
@@ -716,6 +728,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .rounded-lg {
   border-radius: 0.5rem;
+}
+.rounded-r {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.rounded-r-lg {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.rounded-l-lg {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 .border {
   border-width: 1px;
@@ -809,6 +833,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-primary1 {
   --tw-bg-opacity: 1;
   background-color: rgb(247 111 81 / var(--tw-bg-opacity));
+}
+.bg-red-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;

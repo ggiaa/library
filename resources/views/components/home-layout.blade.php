@@ -35,6 +35,14 @@
         </section>
 
         <section class="body py-8 px-8">
+            <div class="pb-4 ml-auto max-w-sm">
+                <form action="/">
+                    <div class="flex">
+                        <input type="text" name="search" value="{{ request('search') }}" class="border w-full rounded-l-lg focus:outline-none px-2 py-1 border-primary1" placeholder="Masukkan judul buku...">
+                        <button class="bg-primary1 text-white px-8 rounded-r-lg" type="submit">Cari</button>
+                    </div>
+                </form>
+            </div>
             {{ $slot }}
         </section>
     </div>
