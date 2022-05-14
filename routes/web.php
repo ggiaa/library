@@ -24,6 +24,7 @@ route::get('/dashboard', function () {
 });
 
 Route::post('/{book:slug}/pinjam', [PinjamController::class, 'index']);
+Route::get('/{book:slug}/pengembalian', [PinjamController::class, 'pengembalian']);
 Route::get('/data', [PinjamController::class, 'dataPeminjaman']);
 
 // login register

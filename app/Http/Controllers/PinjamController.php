@@ -52,4 +52,13 @@ class PinjamController extends Controller
             'kembali' => $data->lama_peminjaman,
         ]);
     }
+
+    public function pengembalian($slug)
+    {
+        $user = auth()->user();
+        $user->status = 'mengembalikan';
+        $user->save();
+
+        return back();
+    }
 }
