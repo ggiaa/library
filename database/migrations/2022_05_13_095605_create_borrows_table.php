@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('book_id');
-            $table->integer('lama_peminjaman');
-            $table->date('tanggal_pinjam');
+            $table->integer('lama_peminjaman')->nullable(true);
             $table->date('tanggal_kembali')->nullable(true);
             $table->bigInteger('denda')->nullable(true);
             $table->timestamps();

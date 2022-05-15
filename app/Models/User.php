@@ -48,4 +48,14 @@ class User extends Authenticatable
     {
         return 'username';
     }
+
+    public function book()
+    {
+        return $this->hasMany(Book::class);
+    }
+
+    public function meminjam()
+    {
+        return $this->belongsToMany(Book::class, 'borrows', 'user_id', 'book_id')->withTimestamps()->withPivot('lama_peminjaman');
+    }
 }

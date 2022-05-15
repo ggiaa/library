@@ -26,4 +26,9 @@ class Book extends Model
     {
         return 'slug';
     }
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Borrow;
+use App\Models\User;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -13,18 +14,12 @@ class PinjamController extends Controller
 {
     public function index(Request $request, $slug)
     {
-        // dd(auth()->user());
-        // dd(Book::where('slug', $slug)->first()->id);
+        // masukkan data ke tabel borrwo
+        $user = auth()->user();
+        $book = Book::where('slug', $slug)->first();
 
-        $validate = $request->validate([
-            'lama_peminjaman' => 'required',
-        ]);
+        $user->meminjam()->attach($book, ['lama_peminjaman' => $request->lama_peminjaman]);
 
-        $validate['user_id'] = auth()->user()->id;
-        $validate['book_id'] = Book::where('slug', $slug)->first()->id;
-        $validate['tanggal_pinjam'] = Carbon::now();
-
-        Borrow::create($validate);
 
         // kurangi stok buku
         $stok = Book::where('slug', $slug)->first()->stok;
@@ -33,6 +28,7 @@ class PinjamController extends Controller
         $data = Book::where('slug', $slug)->first();
         $data->stok = $sisastok;
         $data->save();
+
 
         //udah status jadi meminjam
         $user = auth()->user();
