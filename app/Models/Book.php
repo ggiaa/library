@@ -27,8 +27,8 @@ class Book extends Model
         return 'slug';
     }
 
-    public function user()
+    public function dipinjam()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class, 'borrows', 'user_id', 'book_id')->withTimestamps()->withPivot('lama_peminjaman');
     }
 }

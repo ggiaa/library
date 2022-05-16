@@ -1,6 +1,6 @@
 <x-admin-layout title="EDIT">
     <div class="w-2/3">
-        <form action="/dashboard/books/{{ $book->slug }}" method="POST" enctype="multipart/form-data">
+        <form action="/admin/dashboard/books/{{ $book->slug }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group pb-4">
@@ -86,7 +86,7 @@
                 @enderror
             </div>
             <div class="text-right">
-                <button class="bg-sky-500 text-white py-1 px-3 rounded w-1/4" type="submit">Ubah</button>
+                <button class="bg-accent text-white py-1 px-3 rounded w-1/4" type="submit">Ubah</button>
             </div>
         </form>
     </div>

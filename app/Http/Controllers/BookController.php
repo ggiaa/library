@@ -41,7 +41,6 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->file('gambar_sampul'));
         $validate = $request->validate([
             "judul_buku" => "required|unique:books",
             "slug" => "unique:books",
@@ -62,7 +61,7 @@ class BookController extends Controller
 
         Book::create($validate);
 
-        return redirect('/dashboard/books')->with('success', 'Berhasil menambahkan data buku baru!');
+        return redirect('/admin/dashboard/books')->with('success', 'Berhasil menambahkan data buku baru!');
     }
 
     /**
@@ -128,7 +127,7 @@ class BookController extends Controller
 
         Book::where('id', $book->id)->update($validate);
 
-        return redirect('/dashboard/books')->with('success', 'Perubahan berhasil disimpan!');
+        return redirect('/admin/dashboard/books')->with('success', 'Perubahan berhasil disimpan!');
     }
 
     /**
@@ -143,6 +142,6 @@ class BookController extends Controller
             Storage::delete($book->gambar_sampul);
         }
         Book::destroy($book->id);
-        return redirect('dashboard/books')->with('success', 'Data berhasil dihapus!');
+        return redirect('/admin/dashboard/books')->with('success', 'Data berhasil dihapus!');
     }
 }

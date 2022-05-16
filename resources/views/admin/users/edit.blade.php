@@ -1,6 +1,6 @@
 <x-admin-layout title="EDIT">
     <div class="w-1/2">
-        <form action="/dashboard/users/{{ $user->username }}" method="POST">
+        <form action="/admin/dashboard/users/{{ $user->username }}" method="POST">
             @method('PUT')
             @csrf
             <input type="hidden" name="password" value="{{ $user->password }}">
@@ -30,7 +30,7 @@
                 </select>
             </div>
             <div class="text-right">
-                <button class="bg-sky-500 text-white py-1 px-3 rounded w-1/4" type="submit">Ubah</button>
+                <button class="bg-accent text-white py-1 px-3 rounded w-1/4" type="submit">Ubah</button>
             </div>
         </form>
     </div>

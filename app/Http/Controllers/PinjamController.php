@@ -20,45 +20,31 @@ class PinjamController extends Controller
 
         $user->meminjam()->attach($book, ['lama_peminjaman' => $request->lama_peminjaman]);
 
-
         // kurangi stok buku
-        $stok = Book::where('slug', $slug)->first()->stok;
-        $sisastok = $stok - 1;
-
-        $data = Book::where('slug', $slug)->first();
-        $data->stok = $sisastok;
-        $data->save();
-
+        $sisastok = $book->stok - 1;
+        $book->stok = $sisastok;
+        $book->save();
 
         //udah status jadi meminjam
-        $user = auth()->user();
         $user->status = 'meminjam';
         $user->save();
 
         return redirect('/data')->with('success', 'Peminjaman Berhasil, Silahkan mengambil buku ke perpustakaan!');
     }
 
-    public function dataPeminjaman()
+    public function dataPeminjaman(User $user)
     {
-        try {
-            $data = Borrow::where('user_id', auth()->user()->id)->first();
-            $buku = Book::where('id', $data->book_id)->first();
 
-            return view('data-peminjaman', [
-                "dataPeminjaman" => $data,
-                'buku' => $buku,
-                'kembali' => $data->lama_peminjaman,
-            ]);
-        } catch (Exception) {
-            return view('data-peminjaman', [
-                "dataPeminjaman" => $data,
-            ]);
-        };
+        $data = auth()->user()->meminjam()->first();
+
+        return view('data-peminjaman', [
+            'data' => $data,
+        ]);
     }
 
     public function pengembalian($slug)
     {
-        //ubah status user
+        // ubah status usernya menjadi konfirmasi
         $user = auth()->user();
         $user->status = 'free';
         $user->save();

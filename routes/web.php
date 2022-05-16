@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\PinjamController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -20,11 +22,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+// admin dashboard
+route::get('/admin/dashboard', [AdminDashboard::class, 'index']);
+Route::get('/admin/logout', [AdminDashboard::class, 'logout']);
+route::resource('admin/dashboard/books', BookController::class);
+route::resource('admin/dashboard/users', UserController::class);
+
+
+// user
+Route::get('/', [HomeController::class, 'index']);
+
 
 Route::post('/{book:slug}/pinjam', [PinjamController::class, 'index']);
+
+
 Route::get('/{book:slug}/pengembalian', [PinjamController::class, 'pengembalian']);
 Route::get('/data', [PinjamController::class, 'dataPeminjaman']);
 
@@ -36,9 +47,4 @@ Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register']);
 
 //Home
-Route::get('/', [HomeController::class, 'index']);
 Route::get('/{book:slug}', [HomeController::class, 'show']);
-
-// admin dashboard
-route::resource('dashboard/books', BookController::class);
-route::resource('dashboard/users', UserController::class);

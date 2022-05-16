@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function book()
     {
-        return $this->hasMany(Book::class);
+        return $this->hasOneThrough(Book::class, Borrow::class);
     }
 
     public function meminjam()

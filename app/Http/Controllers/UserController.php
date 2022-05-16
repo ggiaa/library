@@ -50,7 +50,7 @@ class UserController extends Controller
 
         User::create($role);
 
-        return redirect('/dashboard/users')->with('success', 'Berhasil menambahkan user baru!');
+        return redirect('/admin/dashboard/users')->with('success', 'Berhasil menambahkan user baru!');
     }
 
     /**
@@ -105,7 +105,7 @@ class UserController extends Controller
 
         User::where('id', $user->id)->update($role);
 
-        return redirect('/dashboard/users')->with('success', 'Data user berhasil diubah!');
+        return redirect('/admin/dashboard/users')->with('success', 'Data user berhasil diubah!');
     }
 
     /**
@@ -118,6 +118,6 @@ class UserController extends Controller
     {
         User::destroy($user->id);
 
-        return redirect('/dashboard/users')->with('success', 'Data berhasil dihapus!');
+        return redirect('/admin/dashboard/users')->with('success', 'Data berhasil dihapus!');
     }
 }

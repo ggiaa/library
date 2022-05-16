@@ -13,29 +13,37 @@
     <!-- Sidebard -->
     <section>
         <div class="flex h-screen">
-            <div class="sidebar w-1/5 flex flex-col shadow-lg hidden md:block">
+            <!-- sidebar -->
+            <div class="sidebar w-1/5 flex flex-col shadow-lg hidden md:block bg-primary-1 text-white">
                 <div class="text-center py-8">
                     <span class="text-2xl">ADMIN</span>
                 </div>
 
                 <div class="flex-1 overflow-auto">
-                    <a href="/dashboard">
-                        <div class="py-3 px-6 border-y {{ Request::is('dashboard') ? 'bg-slate-300 bg-opacity-40 text-sky-500 font-semibold' : '' }}">Dasboard</div>
+                    <a href="/admin/dashboard">
+                        <div class="py-3 px-6 border-y border-slate-600 {{ Request::is('admin/dashboard') ? 'bg-slate-400 bg-opacity-40 text-accent font-semibold' : '' }}">Dashboard</div>
                     </a>
-                    <a href="/dashboard/books">
-                        <div class="py-3 px-6 border-b {{ Request::is('dashboard/books*') ? 'bg-slate-300 bg-opacity-40 text-sky-500 font-semibold' : '' }}">Books</div>
+                    <a href="/admin/dashboard/books">
+                        <div class="py-3 px-6 border-b border-slate-600 {{ Request::is('admin/dashboard/books*') ? 'bg-slate-400 bg-opacity-40 text-accent font-semibold' : '' }}">Buku</div>
                     </a>
-                    <a href="/dashboard/users">
-                        <div class="py-3 px-6 border-b {{ Request::is('dashboard/users*') ? 'bg-slate-300 bg-opacity-40 text-sky-500 font-semibold' : '' }}">Users</div>
+                    <a href="/admin/dashboard/users">
+                        <div class="py-3 px-6 border-b border-slate-600 {{ Request::is('admin/dashboard/users*') ? 'bg-slate-400 bg-opacity-40 text-accent font-semibold' : '' }}">User</div>
                     </a>
-                    <a href="/logout">
-                        <div class="py-3 px-6 border-b">Logout</div>
+                    <a href="/admin/dashboard/pengembalian">
+                        <div class="py-3 px-6 border-b border-slate-600 {{ Request::is('admin/dashboard/pengembalian*') ? 'bg-slate-400 bg-opacity-40 text-accent font-semibold' : '' }}">Pengembalian</div>
+                    </a>
+                    <a href="/admin/logout">
+                        <div class="py-3 px-6 border-b border-slate-600">Logout</div>
                     </a>
                 </div>
             </div>
+            <!-- end sidebar -->
+
             <div class="flex flex-col flex-1">
-                <div class="py-3 border-b flex justify-center relative items-center">
+                <div class="py-3 border-b flex justify-center relative items-center bg-accent text-white">
                     <h1 class="text-center text-2xl font-semibold">{{ $title }}</h1>
+
+                    <!-- nav mobile -->
                     <div id="hamburger" class="absolute right-0 px-3 md:hidden">
                         <span class="w-[26px] h-[2px] my-[7px] block bg-slate-800 origin-top-left transition duration-300 ease-in-out"></span>
                         <span class="w-[26px] h-[2px] my-[7px] block bg-slate-800 transition duration-300 ease-in-out"></span>
@@ -51,7 +59,11 @@
                             </li>
                         </ul>
                     </nav>
+                    <!-- end nav mobile -->
+
                 </div>
+
+
                 <div class="flex-1 overflow-auto py-6 px-10 box-border">
                     {{ $slot }}
                 </div>
