@@ -11,13 +11,14 @@
     @endif
 
     <div class="border shadow-lg max-w-3xl mx-auto p-5 rounded-xl">
-        <h1 class="text-center text-xl font-medium border-b pb-2 border-primary-1">PEMINJAMAN</h1>
+        <h1 class="text-center text-xl font-medium border-b pb-2 border-primary-1 text-accent">PEMINJAMAN</h1>
         <div>
             @if (auth()->user()->status == 'free')
-            <p class="pt-10 pb-5 text-center text-lg">Belum Ada Data</p>
+            <p class="pt-10 pb-5 text-center text-lg font-medium">Belum Ada Data!</p>
+            <p class="pb-5 text-center text-lg">silahkan pinjam buku terlebih dahulu</p>
 
             @elseif (auth()->user()->status == 'meminjam')
-            <table class=" border-2 mx-auto mt-10 mb-5 w-11/12 text-left">
+            <table class="border-2 mx-auto mt-10 mb-5 w-11/12 text-left">
                 <tr class="border-b bg-slate-100">
                     <th class="py-2">Judul Buku</th>
                     <th>Tanggal Pinjam</th>
@@ -34,6 +35,9 @@
                 </tr>
             </table>
             <p class="mt-10">Harap kembalikan buku pada : <span class="font-medium text-accent">{{ date('l, d F o', strtotime('+'.$data->pivot->lama_peminjaman.' days', strtotime($data->created_at))) }}</span></p>
+            @else
+            <p class="pt-10 pb-5 text-center text-lg font-medium">Pengembalian sedang diproses!</p>
+            <p class="pb-5 text-center">Silahkan tunggu konfirmasi dari petugas sebelum melakukan peminjaman selanjutnya</p>
             @endif
         </div>
     </div>

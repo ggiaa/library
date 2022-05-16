@@ -44,22 +44,11 @@ class PinjamController extends Controller
 
     public function pengembalian($slug)
     {
+
         // ubah status usernya menjadi konfirmasi
         $user = auth()->user();
-        $user->status = 'free';
+        $user->status = 'konfirmasi';
         $user->save();
-
-        //hapus data borrow
-        $idborrow = Borrow::where('user_id', auth()->user()->id)->first()->id;
-        Borrow::destroy($idborrow);
-
-        //tambah stok buku
-        $stok = Book::where('slug', $slug)->first()->stok;
-        $sisastok = $stok + 1;
-
-        $data = Book::where('slug', $slug)->first();
-        $data->stok = $sisastok;
-        $data->save();
 
         return back()->with('success', 'Terima kasih sudah mengembalikan buku, anda dapat meminjam kembali buku lainnya');
     }

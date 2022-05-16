@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\PinjamController;
@@ -27,6 +28,8 @@ route::get('/admin/dashboard', [AdminDashboard::class, 'index']);
 Route::get('/admin/logout', [AdminDashboard::class, 'logout']);
 route::resource('admin/dashboard/books', BookController::class);
 route::resource('admin/dashboard/users', UserController::class);
+route::get('/admin/dashboard/data-peminjaman', [KonfirmasiController::class, 'index']);
+route::get('/admin/dashboard/konfirmasi/{id}', [KonfirmasiController::class, 'konfirmasi']);
 
 
 // user

@@ -29,8 +29,8 @@
                     <a href="/admin/dashboard/users">
                         <div class="py-3 px-6 border-b border-slate-600 {{ Request::is('admin/dashboard/users*') ? 'bg-slate-400 bg-opacity-40 text-accent font-semibold' : '' }}">User</div>
                     </a>
-                    <a href="/admin/dashboard/pengembalian">
-                        <div class="py-3 px-6 border-b border-slate-600 {{ Request::is('admin/dashboard/pengembalian*') ? 'bg-slate-400 bg-opacity-40 text-accent font-semibold' : '' }}">Pengembalian</div>
+                    <a href="/admin/dashboard/data-peminjaman">
+                        <div class="py-3 px-6 border-b border-slate-600 {{ Request::is('admin/dashboard/data-peminjaman*') ? 'bg-slate-400 bg-opacity-40 text-accent font-semibold' : '' }}">Data Peminjaman</div>
                     </a>
                     <a href="/admin/logout">
                         <div class="py-3 px-6 border-b border-slate-600">Logout</div>
