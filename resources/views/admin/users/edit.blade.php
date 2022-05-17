@@ -29,6 +29,16 @@
                     <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                 </select>
             </div>
+            @if ($user->role == 'user')
+            <div class="form-group pb-4">
+                <label for="role">status</label>
+                <select id="status" class="form-control border-2 border-slate-700 focus:border-none w-full rounded-lg py-1 px-1 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:outline-1 focus:outline-sky-500" name="status">
+                    <option value="free" {{ $user->status == 'free' ? 'selected' : '' }}>Free</option>
+                    <option value="meminjam" {{ $user->status == 'meminjam' ? 'selected' : '' }}>Meminjam</option>
+                    <option value="konfirmasi" {{ $user->status == 'konfirmasi' ? 'selected' : '' }}>Konfirmasi</option>
+                </select>
+            </div>
+            @endif
             <div class="text-right">
                 <button class="bg-accent text-white py-1 px-3 rounded w-1/4" type="submit">Ubah</button>
             </div>

@@ -21,6 +21,8 @@
                     <th scope="col" class="py-2 bg-slate-100">#</th>
                     <th scope=" col" class="py-2 bg-slate-100">Nama</th>
                     <th scope=" col" class="py-2 bg-slate-100">Username</th>
+                    <th scope=" col" class="py-2 bg-slate-100">Role</th>
+                    <th scope=" col" class="py-2 bg-slate-100">Status</th>
                     <th scope=" col" class="py-2 bg-slate-100">Action</th>
                 </tr>
             </thead>
@@ -30,6 +32,12 @@
                     <td class="text-center">{{($users->currentPage() - 1) * $users->perPage() + $loop->iteration}}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->username }}</td>
+                    <td>{{ $user->role }}</td>
+                    @if ($user->role == 'admin')
+                    <td>-</td>
+                    @else
+                    <td>{{ $user->status }}</td>
+                    @endif
                     <td class="py-1 flex gap-x-2 justify-center">
                         <a href="/admin/dashboard/users/{{ $user->username }}" class="bg-sky-500 text-white px-2 rounded text-sm py-1 hover:bg-opacity-90">Detail</a>
                         <a href="/admin/dashboard/users/{{ $user->username }}/edit" class="bg-orange-500 text-white px-2 rounded text-sm py-1 hover:bg-opacity-90">Edit</span></a>

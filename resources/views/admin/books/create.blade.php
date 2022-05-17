@@ -60,6 +60,15 @@
                 @enderror
             </div>
             <div class="form-group pb-4">
+                <label for="stok" class="block mb-1 font-semibold text-primary-1">Stok</label>
+                <input autocomplete="off" id="stok" value="{{ old('stok') }}" class="@error('stok') is-invalid @enderror form-control border border-slate-700 focus:border-none w-full rounded-lg py-1 px-1 focus:outline-none focus:ring-1 focus:ring-accent focus:outline-secondary-1 focus:outline-2 focus:outline-offset-0" type="text" name="stok">
+                @error('stok')
+                <div class="text-red-500 text-sm">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group pb-4">
                 <label for="sinopsis" class="block mb-1 font-semibold text-primary-1">Sinopsis</label>
                 <textarea name="sinopsis" id="sinopsis" rows="6" class="@error('sinopsis') is-invalid @enderror border resize-none border-slate-700 focus:border-none w-full rounded-lg py-1 px-1 focus:outline-none focus:ring focuring-1s:ring-accent focus:outline-secondary-1 outline-secondary-1ocus:outline-2 focus:outline-offset-0">{{ old('sinopsis') }}</textarea>
                 @error('sinopsis')

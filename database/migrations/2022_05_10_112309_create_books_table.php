@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('tahun_terbit');
             $table->string('genre');
             $table->text('sinopsis');
+            $table->integer('stok');
             $table->string('gambar_sampul')->nullable(true);
-            $table->integer('stok')->default(0);
             $table->timestamps();
         });
     }

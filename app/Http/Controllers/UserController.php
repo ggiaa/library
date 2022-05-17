@@ -93,10 +93,15 @@ class UserController extends Controller
             'username' => 'required',
             'password' => 'required',
             'role' => 'required',
+            'status' => '',
         ];
 
         if ($request->username !== $user->username) {
             $rules['username'] = 'required|unique:users';
+        }
+
+        if ($request->status) {
+            $role['status'] = 'required';
         }
 
         $role = $request->validate($rules);

@@ -58,6 +58,15 @@
                 @enderror
             </div>
             <div class="form-group pb-4">
+                <label for="stok" class="block mb-1">Stok</label>
+                <input id="stok" value="{{ old('stok',$book->stok) }}" class="@error('stok') is-invalid @enderror form-control border-2 border-slate-700 focus:border-none w-full rounded-lg py-1 px-1 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:outline-1 focus:outline-sky-500" type="text" name="stok">
+                @error('stok')
+                <div class="text-red-500 text-sm">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group pb-4">
                 <label for="sinopsis" class="block mb-1">sinopsis</label>
                 <textarea name="sinopsis" id="sinopsis" rows="7" class="@error('genre') is-invalid @enderror form-control border-2 border-slate-700 focus:border-none w-full rounded-lg py-1 px-1 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:outline-1 focus:outline-sky-500 resize-none">{{ old('sinopsis',$book->sinopsis) }}</textarea>
                 @error('sinopsis')

@@ -5,11 +5,17 @@
                 <th class="pr-4 py-1 align-top">Nama</th>
                 <th class="pr-4 py-1 align-top">Username</th>
                 <th class="pr-4 py-1 align-top">Role</th>
+                @if ($user->role == 'user')
+                <th class="pr-4 py-1 align-top">Status</th>
+                @endif
             </tr>
             <tr>
                 <td class="py-1">{{ $user->name }}</td>
                 <td class="py-1">{{ $user->username }}</td>
                 <td class="py-1">{{ $user->role }}</td>
+                @if ($user->role == 'user')
+                <td class="py-1">{{ $user->status }}</td>
+                @endif
             </tr>
         </table>
     </div>

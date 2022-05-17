@@ -27,6 +27,10 @@
                     <td>{{ $book->genre }}</td>
                 </tr>
                 <tr>
+                    <th class="pr-4 align-top">Stok</th>
+                    <td>{{ $book->stok }}</td>
+                </tr>
+                <tr>
                     <th class="pr-4 align-top">Sinopsis</th>
                     <td>{{ $book->sinopsis }}</td>
                 </tr>

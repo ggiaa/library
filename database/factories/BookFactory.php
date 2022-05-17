@@ -24,6 +24,7 @@ class BookFactory extends Factory
             'jumlah_halaman' => $this->faker->numberBetween(80, 500),
             'tahun_terbit' => $this->faker->numberBetween(2000, 2022),
             'genre' => $this->faker->word(),
+            'stok' => $this->faker->numberBetween(1, 20),
             'sinopsis' => $this->faker->sentences(mt_rand(3, 7), true),
         ];
     }

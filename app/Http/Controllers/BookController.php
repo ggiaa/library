@@ -50,6 +50,7 @@ class BookController extends Controller
             "tahun_terbit" => "required|numeric|min:1",
             "genre" => "required",
             "sinopsis" => "required",
+            "stok" => "required|numeric|min:0",
             'gambar_sampul' => 'image|file',
         ]);
 
@@ -107,6 +108,7 @@ class BookController extends Controller
             "tahun_terbit" => "required|numeric|min:1",
             "genre" => "required",
             "sinopsis" => "required",
+            "stok" => "required|numeric|min:0",
             'gambar_sampul' => 'file|image'
         ];
 
