@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/app.css">
-    <title>Register</title>
-</head>
-
-<body>
-    <div class="border-2 h-screen flex flex-col items-center justify-center">
-        <div class="grid grid-cols-2 bg-slate-800 divide-x divide-slate-700 text-white w-1/2 rounded-lg">
+<x-home-layout>
+    <div class="h-full flex flex-col justify-center image-background">
+        <div class="grid grid-cols-2 bg-slate-800 divide-x divide-slate-700 text-white w-1/2 rounded-lg mx-auto overflow-hidden">
             <div class="">
-                image
+                <img src="/image/appImage/book.jpg" alt="" class="h-full">
             </div>
             <div class="py-10 px-14">
                 <h1 class="text-3xl text-center font-semibold py-1 mb-4">REGISTER</h1>
@@ -44,13 +33,11 @@
                         @enderror
                     </div>
                     <div class="form-group flex flex-wrap">
-                        <button class="w-full bg-accent py-1 my-2 rounded-lg" type="submit">REGISTER</button>
-                        <a href="/register" class="text-xs text-sky-400 mx-auto">Login?</a>
+                        <button class="w-full bg-accent py-1 mt-4 mb-3 text-lg rounded-md" type="submit">REGISTER</button>
+                        <a href="/login" class="text-sm mx-auto">Login?</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</x-home-layout>

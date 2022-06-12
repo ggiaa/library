@@ -24,6 +24,6 @@ class RegisterController extends Controller
 
         User::create($validate);
 
-        return redirect('/login')->with('success', 'Please login!');
+        return redirect('/login')->with('success', 'Berhasil, silahkan login!');
     }
 }

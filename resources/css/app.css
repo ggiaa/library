@@ -12,3 +12,8 @@
 .hamburger-active > span:nth-child(2){
     @apply scale-0;
 }
+
+.image-background{
+    @apply w-full;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/image/appImage/bg.jpg')
+}

@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <th class="pr-4 align-top">Sinopsis</th>
-                    <td>{{ $book->sinopsis }}</td>
+                    <td>{!! $book->sinopsis !!}</td>
                 </tr>
             </table>
         </div>

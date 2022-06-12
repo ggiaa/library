@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <div>
+    <div class="flex flex-col h-screen w-screen">
         <section class="bg-primary-1 shadow">
-            <div class="container mx-auto flex justify-between px-10 text-white items-center">
+            <div class="container mx-auto flex justify-between px-16 text-white items-center">
                 <p class="font-medium text-2xl py-3">Library</p>
-                <ul class="flex gap-x-8 font-medium">
+                <ul class="flex gap-x-10 font-medium">
                     <li>
-                        <a href="/" class="uppercase {{ Request::is('/') ? 'font-semibold text-accent' : '' }}">Home</a>
+                        <a href="/" class="uppercase {{ Request::is('/*') ? 'font-semibold text-accent' : '' }}">Home</a>
                     </li>
                     @auth
                     <li>
@@ -27,14 +27,17 @@
                     </li>
                     @else
                     <li>
-                        <a href="/login" class="uppercase">Login</a>
+                        <a href="/login" class="uppercase {{ Request::is('login') ? 'font-semibold text-accent' : '' }}">Login</a>
+                    </li>
+                    <li>
+                        <a href="/register" class="uppercase {{ Request::is('register') ? 'font-semibold text-accent' : '' }}">Register</a>
                     </li>
                     @endauth
                 </ul>
             </div>
         </section>
 
-        <section class="body py-8 px-8">
+        <section class="body flex-1 bg-black">
             {{ $slot }}
         </section>
     </div>

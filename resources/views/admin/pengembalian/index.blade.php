@@ -1,5 +1,5 @@
 <x-admin-layout title="DATA PEMINJAMAN">
-    <div>
+    <div class="w-full h-full">
         @if (session('success'))
         <div class="alert bg-accent text-white w-1/2 mx-auto text-center flex items-center py-1 rounded mb-2">
             <div class="flex-1">
@@ -10,6 +10,14 @@
             </div>
         </div>
         @endif
+
+        @if(count($users) == '0')
+        <div class="flex flex-col h-full justify-center items-center">
+            <div class="bg-white">
+                <p class="text-lg font-bold">TIDAK ADA DATA!</p>
+            </div>
+        </div>
+        @else
         <table class="w-full border mx-auto mt-10 mb-5text-left">
             <thead>
                 <tr class="border-b bg-slate-100 text-left">
@@ -40,6 +48,7 @@
                 @endforeach
             </tbody>
         </table>
+        @endif
     </div>
     <script>
         const alert = document.querySelector('.alert')
